@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clon de Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffffff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .top-bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .user-profile {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .logo {
+            margin-top: 50px;
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-bar {
+            width: 500px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            outline: none;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #5f6368;
+            background-color: #f8f9fa;
+            border: 1px solid #dfe1e5;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #e8e8e8;
+        }
+
+        .settings {
+            position: fixed;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .settings button {
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <a href="#">Gmail</a>
+        <a href="#">Imágenes</a>
+        <img src="https://via.placeholder.com/32" alt="Foto de usuario" class="user-profile" id="userProfile">
+    </div>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" width="272">
+    </div>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Buscar en Google...">
+        <div class="buttons">
+            <button class="button">Buscar con Google</button>
+            <button class="button">Voy a tener suerte</button>
+        </div>
+    </div>
+
+    <!-- Configuración -->
+    <div class="settings">
+        <button onclick="changeBackground()">Cambiar fondo</button>
+        <button onclick="changeUserProfile()">Cambiar foto de usuario</button>
+    </div>
+
+    <script>
+        // Cambiar el fondo
+        function changeBackground() {
+            const bg = prompt("Ingresa la URL de la imagen de fondo:");
+            if (bg) {
+                document.body.style.backgroundImage = `url(${bg})`;
+            }
+        }
+
+        // Cambiar la foto de usuario
+        function changeUserProfile() {
+            const profile = prompt("Ingresa la URL de tu foto de perfil:");
+            if (profile) {
+                document.getElementById('userProfile').src = profile;
+            }
+        }
+    </script>
+
+</body>
+</html>
